@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+  web:
+    container_name: centos6_php7_xdebug
+    build: ./web
+    expose:
+      - 80
+    ports:
+      - 8080:80
+    volumes:
+      - /var/www/git/:/var/www/html/
+  db:
+    container_name: percona_1
+    image: percona:5.6
+    expose:
+      - 3306
+    ports:
+      - 33060:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: toor 
+      MYSQL_USER: root
+volumes:
+    data: {}
