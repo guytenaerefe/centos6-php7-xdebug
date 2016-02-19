@@ -6,16 +6,18 @@ Run the machines (-d for background):
     
     docker-compose up -d
     
-For local debugging in Vim using Vdebug add this to your `.vimrc`:
+For local debugging in Vim using [Vdebug](https://github.com/joonty/vdebug) add this to your `.vimrc`:
 
     command Docker let g:vdebug_options['server'] = $DOCKERIP
 
 Add the following to for example your `.bashr` after the web machine is up.
-    
-    # Get dockerip for use in vim
+
+    ```bash
+    # Get dockerip and set as ENV variable
     function envdockerip() {
         export DOCKERIP=$(ip addr ls docker0 | awk '/inet / {print $2}' | cut -d"/" -f1)
         echo 'Set docker ip as $DOCKERIP:' $DOCKERIP
-     }
+    }
+    ```
 
 Happy remote debugging.
