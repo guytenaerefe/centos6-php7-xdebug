@@ -12,12 +12,12 @@ For local debugging in Vim using [Vdebug](https://github.com/joonty/vdebug) add 
 
 Add the following to for example your `.bashr` after the web machine is up.
 
-    ```bash
-    # Get dockerip and set as ENV variable
-    function envdockerip() {
-        export DOCKERIP=$(ip addr ls docker0 | awk '/inet / {print $2}' | cut -d"/" -f1)
-        echo 'Set docker ip as $DOCKERIP:' $DOCKERIP
-    }
-    ```
+```bash
+# Get dockerip and set as ENV variable
+function envdockerip() {
+    export DOCKERIP=$(ip addr ls docker0 | awk '/inet / {print $2}' | cut -d"/" -f1)
+    echo 'Set docker ip as $DOCKERIP:' $DOCKERIP
+}
+```
 
 Happy remote debugging.
