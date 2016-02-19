@@ -30,6 +30,7 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 # Copy settings
 COPY php.d /etc/php.d
 RUN IP=$(/sbin/ip route|awk '/default/ { print $3 }'); printf "xdebug.remote_connect_back=Off\nxdebug.remote_host="${IP}"" >> /etc/php.d/xdebug.ini
+RUN printf "Include vhost.d/*.conf" >> /etc/httpd/conf/httpd.conf 
 
 # Adding the configuration file of the Supervisor
 ADD supervisord.conf /etc/

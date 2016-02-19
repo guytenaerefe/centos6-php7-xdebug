@@ -9,7 +9,8 @@ services:
     ports:
       - 8080:80
     volumes:
-      - /var/www/git/:/var/www/html/
+      - ./web/vhost.d/:/etc/httpd/vhost.d/
+      - /var/www/git/:/var/www/git/
   db:
     container_name: percona_1
     image: percona:5.6
