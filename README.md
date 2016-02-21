@@ -10,7 +10,7 @@ For local debugging in Vim using [Vdebug](https://github.com/joonty/vdebug) add 
 
     command Docker let g:vdebug_options['server'] = $DOCKERIP
 
-Add the following to for example your `.bashr` after the web machine is up.
+Add the following to (for example) your `.bashrc` for use after the web machine is up.
 
 ```bash
 # Get dockerip and set as ENV variable
