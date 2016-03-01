@@ -3,7 +3,6 @@ version: "2"
 services:
   web:
     container_name: centos6_php7_xdebug
-    image: guytenaerefe/centos-php7-xdebug
     build: ./web
     expose:
       - 80
@@ -16,7 +15,8 @@ services:
     container_name: percona_1
     image: percona:5.6
     volumes:
-      - db_symfony:/var/lib/db_symfony
+      - db_symfony:/var/lib/mysql
+      - db_symfony_log:/var/log/mysql
     expose:
       - 3306
     ports:
@@ -26,3 +26,4 @@ services:
       MYSQL_USER: root
 volumes:
   db_symfony : {}
+  db_symfony_log: {}
