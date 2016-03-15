@@ -13,6 +13,7 @@ RUN yum update -y \
     php70w \
     php70w-bcmath \
     php70w-cli \
+    php70w-fpm \
     php70w-common \
     php70w-mbstring \
     php70w-mcrypt \
@@ -29,7 +30,7 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 
 # Copy settings
 COPY php.d /etc/php.d
-COPY conf.d /etc/conf.d
+COPY conf.d /etc/httpd/conf.d
 RUN IP=$(/sbin/ip route|awk '/default/ { print $3 }'); printf "xdebug.remote_connect_back=Off\nxdebug.remote_host="${IP}"" >> /etc/php.d/xdebug.ini
 RUN printf "Include vhost.d/*.conf" >> /etc/httpd/conf/httpd.conf 
 
