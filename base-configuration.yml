@@ -8,22 +8,13 @@ services:
       - 80
     ports:
       - 8080:80
-    volumes:
-      - ./web/vhost.d/:/etc/httpd/vhost.d/
-      - /var/www/git/:/var/www/git/
   db:
     container_name: percona_1
     image: percona:5.6
-    volumes:
-      - db_symfony:/var/lib/mysql
-      - db_symfony_log:/var/log/mysql
     expose:
       - 3306
     ports:
       - 33060:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: toor 
-      MYSQL_USER: root
 volumes:
   db_symfony : {}
   db_symfony_log: {}
