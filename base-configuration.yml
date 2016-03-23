@@ -15,6 +15,3 @@ services:
       - 3306
     ports:
       - 33060:3306
-volumes:
-  db_symfony : {}
-  db_symfony_log: {}
