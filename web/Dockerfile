@@ -17,7 +17,7 @@ RUN yum update -y \
     php70w-common \
     php70w-mbstring \
     php70w-mcrypt \
-    php70w-mysql \
+    php70w-mysqlnd \
     php70w-pdo \
     php70w-pecl-imagick \
     php70w-pecl-xdebug  \
