@@ -7,7 +7,7 @@ services:
     expose:
       - 80
     ports:
-      - 8080:80
+      - 80:80
   db:
     container_name: percona_1
     image: percona:5.6
